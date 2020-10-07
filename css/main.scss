@@ -1,0 +1,156 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+// ~~~~~~~~ COPYRIGHT 2020 OVIDIU FARCAS
+
+// ~~~~~~~~ TYPO
+
+@font-face {
+  font-family: "Slabo27";
+  src: url("../assets/fonts/slabo27/Slabo27px-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Slabo13";
+  src: url("../assets/fonts/slabo13/Slabo13px-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: auto;
+}
+
+@font-face {
+  font-family: "Arvo";
+  src: url("../assets/fonts/arvo/Arvo-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Arvo Italic";
+  src: url("../assets/fonts/arvo/Arvo-Italic.ttf");
+}
+
+
+
+// ~~ EB Garamond. A special arrangement to avoid faux italic. 
+@font-face {
+  font-family: 'EB Garamond';/* regular */
+  src: local('EB Garamond Regular'), local('EBGaramond-Regular'),
+       url('../assets/fonts/ebgaramond/static/EBGaramond-Regular.ttf') format('embedded-opentype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: auto;
+}
+
+@font-face {
+  font-family: 'EBGaramondItalic'; /* italic */
+  src: local('EB Garamond Italic'), local('EBGaramond-Italic'),
+       url('../assets/fonts/ebgaramond/static/EBGaramond-Italic.ttf') format('embedded-opentype');
+    font-weight: normal;
+    font-style: italic;
+    font-display: auto;
+}
+@font-face {
+  font-family: 'EBGaramondBold'; /* bold */
+  src: local('EB Garamond Bold'), local('EBGaramond-Bold'),
+       url('../assets/fonts/ebgaramond/static/EBGaramond-Bold.ttf') format('embedded-opentype');
+    font-weight: bold;
+    font-style: bold;
+    font-display: auto;
+}
+@font-face {
+  font-family: 'EBGaramondBoldItalic'; /* bold italic */
+  src: local('EB Garamond BoldItalic'), local('EBGaramond-BoldItalic'),
+       url('../assets/fonts/ebgaramond/static/EBGaramond-BoldItalic.ttf') format('embedded-opentype');
+    font-weight: bold;
+    font-style: italic;
+    font-display: auto;
+}
+
+
+
+
+$base-font-family: 'Slabo13', serif;
+$title-font-family: Arvo;
+$base-font-size:   19px;
+$base-font-weight: 500;
+$small-font-size:  $base-font-size * 0.75;
+$big-font-size:  $base-font-size * 1.2;
+$base-line-height: 1.9;
+
+$spacing-unit:     90px;
+
+
+// ~~~~~~~ COLORS
+
+// Generator: https://coolors.co/2d7dd2-ffde0a-f45d01-474647
+
+
+/* SCSS HEX */
+$bright-navy-blue: #2d7dd2ff;
+$iris: 4F50BD;
+$yellow-pantone: #ffde0aff;
+$persimmon: #f45d01ff;
+$dark-liver: #474647ff;
+
+/* SCSS HSL */
+$bright-navy-blue: hsla(211, 79%, 82%, 1);
+$yellow-pantone: hsla(52, 96%, 100%, 1);
+$persimmon: hsla(23, 100%, 96%, 1);
+$dark-liver: hsla(300, 1%, 28%, 1);
+
+/* SCSS RGB */
+$bright-navy-blue: rgba(45, 125, 210, 1);
+$yellow-pantone: rgba(255, 222, 10, 1);
+$persimmon: rgba(244, 93, 1, 1);
+$dark-liver: rgba(71, 70, 71, 1);
+
+
+$text-color:                  rgb(0, 0, 0);
+$background-color:            #cfcfcf;
+
+$brand-color-1:      $dark-liver;
+$brand-color-2:      $iris;
+$brand-color-3:      $yellow-pantone;
+$brand-color-4:      $persimmon;
+
+
+$grey-color:       #828282;
+$grey-color-light: lighten($grey-color, 40%);
+$grey-color-dark:  darken($grey-color, 25%);
+
+
+// ~~~~~~~ WIDTH ON VARIOUS MEDIA
+
+
+// Width of the content area
+$content-width:    1800px;
+$content-fluid-width: 90%;
+$on-palm:          600px;
+$on-laptop:        800px;
+
+
+
+// Use media queries like this
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}
+
+@mixin opacity($value) {
+  $IEValue: $value*100;
+  opacity: $value;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity="+$IEValue+")";
+  filter: alpha(opacity=$IEValue);
+}
+
+// ~~~~~~~~ IMPORT PARTIALS (THE REST OF THE STYLESHEETS)
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+        "base",
+        "experimental",
+        "layout",
+        "syntax-highlighting"
+;

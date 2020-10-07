@@ -1,0 +1,10 @@
+
+{% for image in site.static_files %}
+<img src="{{ image.path }}" alt="">
+	 {% if file.extname == '.jpg' or file.extname == '.jpeg' or file.extname == '.JPG' or file.extname == '.JPEG' %}zzzzzzzzzzz
+<img src="{{ image.path }}" alt="">
+{% endif %}
+{% endfor %}
+
+
+

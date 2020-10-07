@@ -1,0 +1,35 @@
+#
+#    defines one service called jekyll
+#    uses the Jekyll docker image
+#    command to start Jekyll
+#    map from local port 4000 to contaner port 4000
+#    map from current local folder (.) to container working folder (/srv/jekyll - it’s a Linux container)
+
+
+
+version: '3'
+
+services:
+  jekyll:
+    image: jekyll/jekyll:latest
+    command: jekyll serve --watch --force_polling --verbose
+    ports:
+      - 4000:4000
+    volumes:
+      - .:/srv/jekyll
+
+
+# Copy the docker-compose.yml file in an empty folder and run docker-compose run jekyll /bin/bash from the command line. 
+# This will download the Jekyll docker image, start the container and tunnel the Linux bash of the container to the command line. 
+# You can now enter Linux commands that are executed within the docker container. 
+# Run jekyll new . --force in the bash to setup a new homepage. 
+# (--force is needed because Jekyll prefers empty folders, but we do already have the docker-compose.yml file in the folder.)
+
+# Notice that the docker-container folder is mapped to our local folder via the volumes option in the docker-compose.yml.
+# Once jekyll new . --force is finished all necessary Jekyll files for a new blog have been added to the folder. Not only in the Linux container but also in our host Windows folder.
+
+# Now the homepage can be served.
+# Serve the homepage
+
+# Just run docker-compose up from the command line. That will start the docker-container and run Jekyll. 
+# Folders and ports are mapped and the homepage can be browsed under http://localhost:4000/.
